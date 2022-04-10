@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1088665856225",
+    "project_id": "ensias-class-room",
+    "storage_bucket": "ensias-class-room.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088665856225:android:e027de2e46392bc3c9efa0",
+        "android_client_info": {
+          "package_name": "com.example.ensiasclassroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088665856225-f7ip71dqd2ra8a7kjve6r0gk07k75qfe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2QdmKbGuZnl-mmgmp5JQukwFUNPKjFUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088665856225-f7ip71dqd2ra8a7kjve6r0gk07k75qfe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,9 +3,10 @@ package com.example.ensiasclassroom.models;
 import java.util.LinkedList;
 
 public class CR {
-    String heure_debut;
-    String description;
-    LinkedList<Etudiant> liste_absents;
+    public String heure_debut;
+    public String description;
+    public String id;
+    public LinkedList<Etudiant> liste_absents;
 
     public String getHeure_debut() {
         return heure_debut;

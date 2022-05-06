@@ -1,9 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:animateLayoutChanges="true"
+    android:background="@color/primary"
+    tools:context=".EtudiantMainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logout"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginLeft="@dimen/_260sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/background_icon"
+        android:src="@drawable/ic_logout"
+        android:padding="6.00dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:tint="@color/white" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/background_icon"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:tint="@color/white"
+        app:riv_corner_radius="8dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acceuil"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/_140sdp"
+        android:layout_marginTop="@dimen/_15ssp"
+        app:layout_constraintBottom_toBottomOf="@id/imageProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageProfile" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="660dp"
+        android:layout_marginTop="@dimen/_56sdp"
+        android:background="@drawable/background_content_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageProfile">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/professers"
+            android:layout_width="152dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:text="Liste Professeurs"
+            app:layout_constraintTop_toBottomOf="@id/imageProfile"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <Button
+            android:id="@+id/etudiant"
+            android:layout_width="152dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginLeft="@dimen/_170sdp"
+            android:text="Liste Etudiants"
+            android:backgroundTint="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/imageProfile"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <Button
+            android:id="@+id/cours"
+            android:layout_width="152dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_170sdp"
+            android:text="Cours"
+            android:backgroundTint="@color/grey"
+            app:layout_constraintTop_toBottomOf="@id/professers"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <Button
+            android:id="@+id/emploits"
+            android:layout_width="152dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="@dimen/_170sdp"
+            android:layout_marginTop="@dimen/_170sdp"
+            android:text="Emploits"
+            android:backgroundTint="@color/primary"
+            app:layout_constraintTop_toBottomOf="@id/etudiant"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <Button
+            android:id="@+id/groups"
+            android:layout_width="152dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_290sdp"
+            android:text="Groups"
+            android:backgroundTint="@color/primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/cours"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <Button
+            android:id="@+id/absence"
+            android:layout_width="152dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="@dimen/_170sdp"
+            android:layout_marginTop="@dimen/_290sdp"
+            android:text="Absence"
+            android:backgroundTint="@color/cool_primary"
+            app:layout_constraintTop_toBottomOf="@id/emploits"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_60ssp"
+            android:gravity="left"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toRightOf="@id/imageProfile"
+            tools:context=".views.MainActivity">
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,16 +1,26 @@
 package com.example.ensiasclassroom.models;
 
-public class Etudiant {
+import java.io.Serializable;
 
-    private String nom;
-    private String prenom;
-    private String tel;
+public class Etudiant implements Serializable {
+
+    public String nom;
+    public String prenom;
+    public String tel;
+    public String photo;
+    public String token;
+    public String id;
 
     public Etudiant(String nom, String prenom, String tel){
         nom= new String(nom);
         prenom= new String(prenom);
         tel= new String(tel);
     }
+
+    public Etudiant() {
+
+    }
+
     public String getNom() {
         return nom;
     }

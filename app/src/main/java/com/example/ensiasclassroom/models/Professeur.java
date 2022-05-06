@@ -1,14 +1,17 @@
 package com.example.ensiasclassroom.models;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Professeur {
-    private String nom;
-    private String prenom;
-    private String tel;
+public class Professeur implements Serializable {
+    public String nom;
+    public String prenom;
+    public String tel;
     //private LinkedList<Groupe> liste_groupe;
-    private String photo;
-    private String departement;
+    public String photo;
+    public String departement;
+    public String token;
+    public String id;
 
     public Professeur(String nom, String prenom, String tel, String photo, String departement){
         this.nom= new String(nom);
@@ -17,6 +20,10 @@ public class Professeur {
         this.photo= new String(photo);
         this.departement= new String(departement);
         //this.liste_groupe=liste_groupe;
+
+    }
+
+    public Professeur() {
 
     }
 

@@ -10,8 +10,69 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ENSIASClassRoom">
         <activity
-            android:name=".MainActivity"
+            android:name=".CoursListActivity"
             android:exported="false" />
+        <activity
+            android:name=".AddGroupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddCrActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddEmploitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddProfessorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfessorMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfessorDetailsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_professor_details"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name=".ProfesseurChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EtudiantChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.SignInActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EtudiantsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.etudiant.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.professeur.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfesseursListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EtudiantMainActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".services.MessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

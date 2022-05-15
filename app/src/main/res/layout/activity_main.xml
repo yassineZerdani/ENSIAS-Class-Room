@@ -13,7 +13,7 @@
         android:id="@+id/logout"
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
-        android:layout_marginLeft="@dimen/_260sdp"
+        android:layout_marginStart="@dimen/_260sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:background="@drawable/background_icon"
         android:src="@drawable/ic_logout"

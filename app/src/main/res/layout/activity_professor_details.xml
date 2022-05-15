@@ -122,7 +122,8 @@ tools:context=".ProfessorDetailsActivity">
         android:text="SUPPRIMER"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/error"/>
+        android:textColor="@color/error"
+        android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

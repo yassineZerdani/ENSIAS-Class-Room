@@ -33,7 +33,15 @@ public class EtudiantsListActivity extends AppCompatActivity implements Etudiant
     }
 
     private void setListeners(){
+
         binding.imageBack.setOnClickListener(v -> onBackPressed());
+
+        String role = preferenceManager.getString(Constants.KEY_ROLE);
+
+        if(role.equals("admin")){
+            binding.addProfessor.setVisibility(View.VISIBLE);
+        }
+        binding.addProfessor.setOnClickListener(v -> startActivity(new Intent(this, AddEtudiantActivity.class)));
     }
 
     private void getUsers(){
@@ -86,8 +94,8 @@ public class EtudiantsListActivity extends AppCompatActivity implements Etudiant
 
     @Override
     public void onUserClicked(Etudiant user) {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.putExtra(Constants.KEY_PROFESSOR, user);
+        Intent intent = new Intent(getApplicationContext(), EtudiantDetailsActivity.class);
+        intent.putExtra(Constants.KEY_ETUDIANT, user);
         startActivity(intent);
         finish();
     }

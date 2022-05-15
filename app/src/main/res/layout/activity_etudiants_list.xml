@@ -12,7 +12,7 @@
         android:id="@+id/imageBack"
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
-        android:layout_marginStart="344dp"
+        android:layout_marginStart="@dimen/_260sdp"
         android:layout_marginTop="8dp"
         android:background="@drawable/background_icon"
         android:padding="@dimen/_6sdp"
@@ -72,11 +72,13 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addProfessor"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_440sdp"
             android:layout_marginLeft="@dimen/_230sdp"
-            android:backgroundTint="@color/primary"/>
+            android:backgroundTint="@color/primary"
+            android:src="@drawable/ic_addd"
+            android:visibility="gone" />
 
     </FrameLayout>
 

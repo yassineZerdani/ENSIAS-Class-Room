@@ -38,10 +38,7 @@ public class EtudiantDetailsActivity extends AppCompatActivity {
 
         String role = preferenceManager.getString(Constants.KEY_ROLE);
 
-        if(role == "admin"){
-            binding.delete.setVisibility(View.GONE);
-        }
-        else{
+        if(role.equals("admin")){
             binding.delete.setVisibility(View.VISIBLE);
         }
 
@@ -51,7 +48,7 @@ public class EtudiantDetailsActivity extends AppCompatActivity {
         binding.delete.setOnClickListener(v -> {
             FirebaseFirestore database = FirebaseFirestore.getInstance();
             database.collection(Constants.KEY_COLLECTION_ETUDIANT).document(etudiant.id).delete();
-            Intent intent = new Intent(getApplicationContext(), ProfesseursListActivity.class);
+            Intent intent = new Intent(getApplicationContext(), EtudiantsListActivity.class);
             startActivity(intent);
             finish();
         });
@@ -68,7 +65,7 @@ public class EtudiantDetailsActivity extends AppCompatActivity {
     private void loadServiceDetails(){
         etudiant = (Etudiant) getIntent().getSerializableExtra(Constants.KEY_ETUDIANT);
         binding.imageService.setImageBitmap(getBitmapFromEncodedString(etudiant.photo));
-        binding.textName.setText("Pr "+etudiant.prenom+" "+etudiant.nom);
+        binding.textName.setText(etudiant.prenom+" "+etudiant.nom);
         binding.negociate.setOnClickListener(v -> {
             Etudiant user = getUser(etudiant.id);
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);

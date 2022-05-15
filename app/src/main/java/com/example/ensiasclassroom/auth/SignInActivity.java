@@ -121,6 +121,7 @@ public class SignInActivity extends AppCompatActivity {
                         preferenceManager.putString(Constants.KEY_ETUDIANT_FIRST_NAME, documentSnapshot.getString(Constants.KEY_ETUDIANT_FIRST_NAME));
                         preferenceManager.putString(Constants.KEY_ETUDIANT_LAST_NAME, documentSnapshot.getString(Constants.KEY_ETUDIANT_LAST_NAME));
                         preferenceManager.putString(Constants.KEY_ETUDIANT_IMAGE, documentSnapshot.getString(Constants.KEY_ETUDIANT_IMAGE));
+                        preferenceManager.putString(Constants.KEY_ROLE, documentSnapshot.getString(Constants.KEY_ROLE));
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
@@ -146,6 +147,7 @@ public class SignInActivity extends AppCompatActivity {
                         preferenceManager.putString(Constants.KEY_PROFESSOR_FIRST_NAME, documentSnapshot.getString(Constants.KEY_PROFESSOR_FIRST_NAME));
                         preferenceManager.putString(Constants.KEY_PROFESSOR_LAST_NAME, documentSnapshot.getString(Constants.KEY_PROFESSOR_LAST_NAME));
                         preferenceManager.putString(Constants.KEY_PROFESSOR_IMAGE, documentSnapshot.getString(Constants.KEY_PROFESSOR_IMAGE));
+                        preferenceManager.putString(Constants.KEY_ROLE, documentSnapshot.getString(Constants.KEY_ROLE));
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);

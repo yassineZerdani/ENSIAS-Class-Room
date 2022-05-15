@@ -72,13 +72,13 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addcour"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_440sdp"
             android:layout_marginLeft="@dimen/_230sdp"
             android:backgroundTint="@color/primary"
-            android:src="@drawable/ic_add_object_service"
-            android:tint="@color/white" />
+            android:src="@drawable/ic_addd"
+            android:visibility="gone"/>
 
     </FrameLayout>
 

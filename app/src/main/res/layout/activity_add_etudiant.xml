@@ -45,8 +45,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Add Image"
-                android:textSize="@dimen/_10ssp" />
+                android:text="Ajouter une Image"
+                android:textSize="@dimen/_8ssp" />
 
 
         </FrameLayout>

@@ -40,10 +40,8 @@ public class GroupListActivity extends AppCompatActivity implements GroupListene
 
         String role = preferenceManager.getString(Constants.KEY_ROLE);
 
-        if(role == "admin"){
-            binding.addGroup.setVisibility(View.GONE);
-        }
-        else{
+
+        if(role.equals("admin")){
             binding.addGroup.setVisibility(View.VISIBLE);
         }
 

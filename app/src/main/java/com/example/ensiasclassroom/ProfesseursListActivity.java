@@ -38,10 +38,7 @@ public class ProfesseursListActivity extends AppCompatActivity implements Profes
 
         String role = preferenceManager.getString(Constants.KEY_ROLE);
 
-        if(role == "admin"){
-            binding.addProfessor.setVisibility(View.GONE);
-        }
-        else{
+        if(role.equals("admin")){
             binding.addProfessor.setVisibility(View.VISIBLE);
         }
 

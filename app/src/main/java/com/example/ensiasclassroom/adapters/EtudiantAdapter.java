@@ -57,8 +57,7 @@ public class EtudiantAdapter extends RecyclerView.Adapter<EtudiantAdapter.UserVi
         }
 
         void setUserData(Etudiant user) {
-            binding.textName.setText(user.nom);
-            binding.textEmail.setText(user.tel);
+            binding.textName.setText(user.nom+" "+user.prenom);
             binding.imageProfile.setImageBitmap(getUserImage(user.photo));
             binding.getRoot().setOnClickListener(v -> userListener.onUserClicked(user));
         }

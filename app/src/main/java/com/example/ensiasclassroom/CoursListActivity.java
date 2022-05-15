@@ -39,12 +39,11 @@ public class CoursListActivity extends AppCompatActivity implements CRListener {
         binding.imageBack.setOnClickListener(v -> onBackPressed());
 
         String role = preferenceManager.getString(Constants.KEY_ROLE);
-        if(role == "admin"){
-            binding.addcour.setVisibility(View.GONE);
-        }
-        else{
+
+        if(role.equals("admin")){
             binding.addcour.setVisibility(View.VISIBLE);
         }
+
         binding.addcour.setOnClickListener(v -> startActivity(new Intent(this, AddCrActivity.class)));
     }
 

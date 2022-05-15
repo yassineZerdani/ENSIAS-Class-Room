@@ -52,10 +52,8 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
 
         String role = preferenceManager.getString(Constants.KEY_ROLE);
 
-        if(role == "admin"){
-            binding.delete.setVisibility(View.GONE);
-        }
-        else{
+
+        if(role.equals("admin")){
             binding.delete.setVisibility(View.VISIBLE);
         }
 
@@ -159,8 +157,8 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
         i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"yassinezerdani.gd@gmail.com"});
-        i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-        i.putExtra(Intent.EXTRA_TEXT   , "body of email");
+        i.putExtra(Intent.EXTRA_SUBJECT, "Objet...");
+        i.putExtra(Intent.EXTRA_TEXT   , "Message...");
         try {
             startActivity(Intent.createChooser(i, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {

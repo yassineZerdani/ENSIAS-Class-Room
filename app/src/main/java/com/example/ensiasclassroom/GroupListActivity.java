@@ -6,26 +6,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.ensiasclassroom.adapters.EtudiantAdapter;
-import com.example.ensiasclassroom.databinding.ActivityEtudiantsListBinding;
-import com.example.ensiasclassroom.listeners.EtudiantListener;
-import com.example.ensiasclassroom.models.Etudiant;
+import com.example.ensiasclassroom.adapters.CRAdapter;
+import com.example.ensiasclassroom.adapters.GroupAdapter;
+import com.example.ensiasclassroom.databinding.ActivityCoursListBinding;
+import com.example.ensiasclassroom.databinding.ActivityGroupListBinding;
+import com.example.ensiasclassroom.listeners.GroupListener;
+import com.example.ensiasclassroom.models.CR;
+import com.example.ensiasclassroom.models.Group;
 import com.example.ensiasclassroom.utilities.Constants;
 import com.example.ensiasclassroom.utilities.PreferenceManager;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class EtudiantsListActivity extends AppCompatActivity implements EtudiantListener {
+public class GroupListActivity extends AppCompatActivity implements GroupListener {
 
-    private ActivityEtudiantsListBinding binding;
+    private ActivityGroupListBinding binding;
     private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityEtudiantsListBinding.inflate(getLayoutInflater());
+        binding = ActivityGroupListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         preferenceManager = new PreferenceManager(getApplicationContext());
         setListeners();
@@ -33,35 +37,44 @@ public class EtudiantsListActivity extends AppCompatActivity implements Etudiant
     }
 
     private void setListeners(){
+
+        String role = preferenceManager.getString(Constants.KEY_ROLE);
+
+        if(role == "admin"){
+            binding.addGroup.setVisibility(View.GONE);
+        }
+        else{
+            binding.addGroup.setVisibility(View.VISIBLE);
+        }
+
         binding.imageBack.setOnClickListener(v -> onBackPressed());
+        binding.addGroup.setOnClickListener(v -> startActivity(new Intent(this, AddGroupActivity.class)));
     }
 
     private void getUsers(){
         loading(true);
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        database.collection(Constants.KEY_COLLECTION_ETUDIANT)
+        database.collection(Constants.KEY_COLLECTION_GROUP)
                 .get()
                 .addOnCompleteListener(task -> {
                     loading(false);
-                    String currentUserId = preferenceManager.getString(Constants.KEY_ETUDIANT_ID);
+                    String currentUserId = preferenceManager.getString(Constants.KEY_GROUP_ID);
                     if(task.isSuccessful() && task.getResult() != null){
-                        List<Etudiant> users = new ArrayList<>();
+                        List<Group> crs = new ArrayList<>();
                         for(QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
                             if(currentUserId.equals(queryDocumentSnapshot.getId())){
                                 continue;
                             }
-                            Etudiant user = new Etudiant();
-                            user.nom = queryDocumentSnapshot.getString(Constants.KEY_ETUDIANT_FIRST_NAME);
-                            user.prenom = queryDocumentSnapshot.getString(Constants.KEY_ETUDIANT_LAST_NAME);
-                            user.photo = queryDocumentSnapshot.getString(Constants.KEY_ETUDIANT_IMAGE);
-                            user.token = queryDocumentSnapshot.getString(Constants.KEY_FCM_TOKEN);
-                            user.id = queryDocumentSnapshot.getId();
-                            users.add(user);
+                            Group cr = new Group();
+                            cr.titre = queryDocumentSnapshot.getString(Constants.KEY_GROUP_TITLE);
+                            cr.description = queryDocumentSnapshot.getString(Constants.KEY_GROUP_DESCR);
+                            cr.id = queryDocumentSnapshot.getId();
+                            crs.add(cr);
                         }
-                        if(users.size() > 0){
-                            EtudiantAdapter usersController = new EtudiantAdapter(users, this);
-                            binding.usersRecyclerView.setAdapter(usersController);
-                            binding.usersRecyclerView.setVisibility(View.VISIBLE);
+                        if(crs.size() > 0){
+                            GroupAdapter usersController = new GroupAdapter(crs, this);
+                            binding.cRecyclerView.setAdapter(usersController);
+                            binding.cRecyclerView.setVisibility(View.VISIBLE);
                         }else{
                             showErrorMessage();
                         }
@@ -84,11 +97,16 @@ public class EtudiantsListActivity extends AppCompatActivity implements Etudiant
         }
     }
 
-    @Override
-    public void onUserClicked(Etudiant user) {
+    //@Override
+    public void onCRClicked(Group user) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.putExtra(Constants.KEY_PROFESSOR, user);
+        //intent.putExtra(Constants.KEY_PROFESSOR, user);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onGroupClicked(Group group) {
+
     }
 }

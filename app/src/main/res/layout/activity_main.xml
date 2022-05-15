@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/primary"
-    tools:context=".EtudiantMainActivity">
+    tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logout"
@@ -55,7 +55,7 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="660dp"
+        android:layout_height="760dp"
         android:layout_marginTop="@dimen/_56sdp"
         android:background="@drawable/background_content_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,6 +74,7 @@
             android:layout_marginTop="@dimen/_50sdp"
             android:layout_marginLeft="@dimen/_25sdp"
             android:text="Liste Professeurs"
+            android:backgroundTint="@color/cool_primary"
             app:layout_constraintTop_toBottomOf="@id/imageProfile"
             app:layout_constraintLeft_toLeftOf="parent"
             />
@@ -85,7 +86,7 @@
             android:layout_marginTop="@dimen/_50sdp"
             android:layout_marginLeft="@dimen/_170sdp"
             android:text="Liste Etudiants"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/cool_primary"
             app:layout_constraintTop_toBottomOf="@id/imageProfile"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -96,7 +97,7 @@
             android:layout_marginLeft="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_170sdp"
             android:text="Cours"
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/cool_primary"
             app:layout_constraintTop_toBottomOf="@id/professers"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -107,7 +108,7 @@
             android:layout_marginLeft="@dimen/_170sdp"
             android:layout_marginTop="@dimen/_170sdp"
             android:text="Emploits"
-            android:backgroundTint="@color/primary"
+            android:backgroundTint="@color/cool_primary"
             app:layout_constraintTop_toBottomOf="@id/etudiant"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -118,7 +119,7 @@
             android:layout_marginLeft="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_290sdp"
             android:text="Groups"
-            android:backgroundTint="@color/primary_dark"
+            android:backgroundTint="@color/cool_primary"
             app:layout_constraintTop_toBottomOf="@id/cours"
             app:layout_constraintLeft_toLeftOf="parent"/>
 

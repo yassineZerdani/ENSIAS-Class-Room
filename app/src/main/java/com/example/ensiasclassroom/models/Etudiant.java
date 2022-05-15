@@ -10,6 +10,7 @@ public class Etudiant implements Serializable {
     public String photo;
     public String token;
     public String id;
+    public String role;
 
     public Etudiant(String nom, String prenom, String tel){
         nom= new String(nom);

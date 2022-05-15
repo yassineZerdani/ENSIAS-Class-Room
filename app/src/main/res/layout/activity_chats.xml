@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/primary"
-    tools:context=".ChatActivity">
+    tools:context=".ChatsActivity">
 
     <View
         android:id="@+id/viewBackground"
@@ -33,7 +33,6 @@
         android:layout_marginLeft="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:padding="@dimen/_5sdp"
-        android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:tint="@color/white"/>
@@ -46,7 +45,7 @@
         android:layout_marginEnd="@dimen/_16sdp"
         android:layout_marginRight="@dimen/_16sdp"
         android:padding="@dimen/_4sdp"
-        android:src="@drawable/ic_info"
+        android:src="@drawable/ic_logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:tint="@color/white"/>
@@ -133,7 +132,7 @@
         android:layout_marginRight="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_12sdp"
         android:background="@drawable/background_chat_input"
-        android:hint="Type a Message"
+        android:hint="Tapez un Message..."
         android:textColorHint="@color/white"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"

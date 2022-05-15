@@ -36,6 +36,15 @@ public class ProfesseursListActivity extends AppCompatActivity implements Profes
 
     private void setListeners(){
 
+        String role = preferenceManager.getString(Constants.KEY_ROLE);
+
+        if(role == "admin"){
+            binding.addProfessor.setVisibility(View.GONE);
+        }
+        else{
+            binding.addProfessor.setVisibility(View.VISIBLE);
+        }
+
         binding.imageBack.setOnClickListener(v -> onBackPressed());
         binding.addProfessor.setOnClickListener(v -> startActivity(new Intent(this, AddProfessorActivity.class)));
     }

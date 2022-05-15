@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:overScrollMode="never"
     android:padding="@dimen/_24sdp"
-    android:scrollbars="none"
-    tools:context=".AddCrActivity">
+    tools:context=".EmailActivity">
+
 
     <LinearLayout
 
@@ -21,28 +19,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16sdp"
-            android:text="Créer un nouveau cour"
+            android:text="Envoyer un Email"
             android:textColor="@color/black"
             android:textSize="@dimen/_18ssp"
             android:textStyle="bold" />
 
 
-
-
-        <TimePicker
-            android:id="@+id/heure_debut"
-            android:layout_marginTop="@dimen/_50sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:timePickerMode="clock"/>
-
         <EditText
-            android:id="@+id/description"
+            android:id="@+id/email_prof"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/background_input"
-            android:hint="Description"
+            android:hint="Déstinaté"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="textPostalAddress"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_16sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp" />
+
+
+        <EditText
+            android:id="@+id/objet"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:background="@drawable/background_input"
+            android:hint="Objet"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_16sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp" />
+
+        <EditText
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/background_input"
+            android:hint="Message"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textLongMessage"
@@ -52,12 +72,14 @@
             android:textSize="@dimen/_13ssp" />
 
 
+
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/add_prof"
+            android:id="@+id/envoyer"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:text="Ajouter"
+            android:text="envoyer"
             android:textColor="@color/white"
             android:textSize="@dimen/_13ssp"
             android:textStyle="bold"

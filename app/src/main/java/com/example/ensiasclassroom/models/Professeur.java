@@ -12,6 +12,7 @@ public class Professeur implements Serializable {
     public String departement;
     public String token;
     public String id;
+    public String role;
 
     public Professeur(String nom, String prenom, String tel, String photo, String departement){
         this.nom= new String(nom);

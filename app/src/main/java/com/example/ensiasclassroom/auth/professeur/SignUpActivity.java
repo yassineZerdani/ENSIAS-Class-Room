@@ -13,8 +13,8 @@ import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
-import com.example.ensiasclassroom.EtudiantMainActivity;
-import com.example.ensiasclassroom.ProfessorMainActivity;
+
+import com.example.ensiasclassroom.MainActivity;
 import com.example.ensiasclassroom.databinding.ActivitySignUpBinding;
 import com.example.ensiasclassroom.utilities.Constants;
 import com.example.ensiasclassroom.utilities.PreferenceManager;
@@ -66,6 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
         user.put(Constants.KEY_PROFESSOR_EMAIL, binding.emailSignup.getText().toString());
         user.put(Constants.KEY_PROFESSOR_PASSWORD, binding.passwordSignup.getText().toString());
         user.put(Constants.KEY_PROFESSOR_IMAGE, encodedImage);
+        user.put(Constants.KEY_ROLE, "professeur");
         database.collection(Constants.KEY_COLLECTION_PROFESSORS).add(user).addOnSuccessListener(documentReference -> {
             preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
             preferenceManager.putString(Constants.KEY_PROFESSOR_ID, documentReference.getId());
@@ -76,7 +77,8 @@ public class SignUpActivity extends AppCompatActivity {
             preferenceManager.putString(Constants.KEY_PROFESSOR_PASSWORD, binding.passwordSignup.getText().toString());
             preferenceManager.putString(Constants.KEY_PROFESSOR_PHONE, binding.phoneSignup.getText().toString());
             preferenceManager.putString(Constants.KEY_PROFESSOR_IMAGE, encodedImage);
-            Intent intent = new Intent(getApplicationContext(), ProfessorMainActivity.class);
+            preferenceManager.putString(Constants.KEY_ROLE, "professeur");
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }).addOnFailureListener(exception -> {

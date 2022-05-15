@@ -9,9 +9,9 @@ import android.util.Base64;
 import android.view.View;
 
 import com.example.ensiasclassroom.adapters.ChatAdapter;
-import com.example.ensiasclassroom.databinding.ActivityChatBinding;
+import com.example.ensiasclassroom.databinding.ActivityChatsBinding;
 import com.example.ensiasclassroom.models.ChatMessage;
-import com.example.ensiasclassroom.models.Etudiant;
+import com.example.ensiasclassroom.models.Professeur;
 import com.example.ensiasclassroom.utilities.Constants;
 import com.example.ensiasclassroom.utilities.PreferenceManager;
 import com.google.firebase.firestore.DocumentChange;
@@ -28,10 +28,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-public class ProfesseurChatActivity extends AppCompatActivity {
+public class ChatsActivity extends AppCompatActivity {
 
-    private ActivityChatBinding binding;
-    private Etudiant receiverUser;
+    private ActivityChatsBinding binding;
+    private Professeur receiverUser;
     private List<ChatMessage> chatMessages;
     private ChatAdapter chatController;
     private PreferenceManager preferenceManager;
@@ -40,7 +40,7 @@ public class ProfesseurChatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityChatBinding.inflate(getLayoutInflater());
+        binding = ActivityChatsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setListeners();
         loadReceiverDetails();
@@ -54,7 +54,7 @@ public class ProfesseurChatActivity extends AppCompatActivity {
         chatController = new ChatAdapter(
                 chatMessages,
                 getBitmapFromEncodedString(receiverUser.photo),
-                preferenceManager.getString(Constants.KEY_ETUDIANT_ID)
+                preferenceManager.getString(Constants.KEY_PROFESSOR_ID)
         );
         binding.chatRecyclerView.setAdapter(chatController);
         database = FirebaseFirestore.getInstance();
@@ -77,7 +77,7 @@ public class ProfesseurChatActivity extends AppCompatActivity {
                 .addSnapshotListener(eventListener);
         database.collection(Constants.KEY_COLLECTION_CHAT)
                 .whereEqualTo(Constants.KEY_SENDER_ID, receiverUser.id)
-                .whereEqualTo(Constants.KEY_RECEIVER_ID, preferenceManager.getString(Constants.KEY_ETUDIANT_ID))
+                .whereEqualTo(Constants.KEY_RECEIVER_ID, preferenceManager.getString(Constants.KEY_PROFESSOR_ID))
                 .addSnapshotListener(eventListener);
     }
 
@@ -117,7 +117,7 @@ public class ProfesseurChatActivity extends AppCompatActivity {
     }
 
     private void loadReceiverDetails(){
-        receiverUser = (Etudiant) getIntent().getSerializableExtra(Constants.KEY_ETUDIANT);
+        receiverUser = (Professeur) getIntent().getSerializableExtra(Constants.KEY_PROFESSOR);
         binding.textName.setText(receiverUser.nom);
     }
 

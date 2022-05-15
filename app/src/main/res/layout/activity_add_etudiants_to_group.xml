@@ -25,7 +25,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Etudiants"
+        android:text="Liste des Etudiants"
         android:textColor="@color/white"
         android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
@@ -72,13 +72,15 @@
             android:textSize="@dimen/_12ssp"
             android:visibility="gone" />
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/accept"
+            android:text="valider"
+            android:layout_width="192dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="558dp"
+            android:layout_marginStart="110dp"
+            android:backgroundTint="@color/primary" />
 
-    <Button
-        android:id="@+id/accept"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,30 +9,26 @@
     android:padding="@dimen/_24sdp"
     tools:context=".auth.SignInActivity">
 
+
+    <ImageView
+        android:id="@+id/image_ensias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="52dp"
+        android:background="#FFEB3B"
+        android:src="@drawable/ensias"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="216dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="31dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:text="Welcome Back!"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_18ssp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:text="Login to continue"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp" />
 
         <EditText
             android:id="@+id/email_signin"
@@ -40,7 +36,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_40sdp"
             android:background="@drawable/background_input"
-            android:hint="Email"
+            android:hint="E-mail"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
@@ -55,7 +51,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/background_input"
-            android:hint="Password"
+            android:hint="Mot de pass"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="textPassword"
@@ -70,7 +66,7 @@
             android:layout_height="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:backgroundTint="@color/primary"
-            android:text="Sign In"
+            android:text="LogIn"
             android:textColor="@color/white"
             android:textSize="@dimen/_13ssp"
             android:textStyle="bold"
@@ -81,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_30sdp"
-            android:text="Create New Account"
+            android:text="Créer un nouveau compte"
             android:textColor="@color/primary"
             android:textSize="@dimen/_13ssp"
             android:textStyle="bold" />

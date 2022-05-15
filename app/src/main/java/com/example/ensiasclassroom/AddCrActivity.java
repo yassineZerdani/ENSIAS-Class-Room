@@ -64,7 +64,7 @@ public class AddCrActivity extends AppCompatActivity {
         service.put(Constants.KEY_CR_HOUR, time);
         service.put(Constants.KEY_CR_DESCR, binding.description.getText().toString());
         database.collection(Constants.KEY_COLLECTION_CR).add(service).addOnSuccessListener(documentReference -> {
-            Intent intent = new Intent(getApplicationContext(), ProfesseursListActivity.class);
+            Intent intent = new Intent(getApplicationContext(), CoursListActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }).addOnFailureListener(exception -> {

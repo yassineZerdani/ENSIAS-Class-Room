@@ -1,37 +1,29 @@
 package com.example.ensiasclassroom;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.ensiasclassroom.auth.SignInActivity;
-import com.example.ensiasclassroom.databinding.ActivityProfessorMainBinding;
+import com.example.ensiasclassroom.databinding.ActivityMainBinding;
 import com.example.ensiasclassroom.utilities.Constants;
 import com.example.ensiasclassroom.utilities.PreferenceManager;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.ensiasclassroom.databinding.ActivityMainBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
 
-public class ProfessorMainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-    private ActivityProfessorMainBinding binding;
+    private ActivityMainBinding binding;
     private PreferenceManager preferenceManager;
 
     @Override
@@ -39,7 +31,7 @@ public class ProfessorMainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        binding = ActivityProfessorMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         preferenceManager = new PreferenceManager(getApplicationContext());
         loadUserDetails();
@@ -54,12 +46,25 @@ public class ProfessorMainActivity extends AppCompatActivity {
         binding.logout.setOnClickListener(v -> signOut());
         //binding.objectsCount.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), ObjectsActivity.class)));
         //binding.servicesCount.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), ServicesActivity.class)));
-        binding.professers.setOnClickListener(v -> startActivity(new Intent(this, EtudiantsListActivity.class)));
-        binding.cours.setOnClickListener(v -> startActivity(new Intent(this, AddCrActivity.class)));
+        binding.professers.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), ProfesseursListActivity.class)));
+        binding.cours.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), CoursListActivity.class)));
+        binding.groups.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), GroupListActivity.class)));
+        binding.etudiant.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EtudiantsListActivity.class)));
+        String role = preferenceManager.getString(Constants.KEY_ROLE);
+        if(role == "etudiant"){
+            binding.absence.setVisibility(View.GONE);
+            binding.groups.setVisibility(View.GONE);
+        }
+        else if(role == "professeur"){
+
+        }
+        else if(role == "admin"){
+
+        }
     }
 
     private void loadUserDetails(){
-        byte[] bytes = Base64.decode(preferenceManager.getString(Constants.KEY_PROFESSOR_IMAGE), Base64.DEFAULT);
+        byte[] bytes = Base64.decode(preferenceManager.getString(Constants.KEY_ETUDIANT_IMAGE), Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         binding.imageProfile.setImageBitmap(bitmap);
     }
@@ -108,6 +113,4 @@ public class ProfessorMainActivity extends AppCompatActivity {
                     finish();
                 }).addOnFailureListener(e -> showToast("unable to sign out"));
     }
-
-
 }

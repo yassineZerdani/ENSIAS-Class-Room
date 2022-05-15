@@ -1,13 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="@dimen/_10sdp"
     android:layout_marginStart="@dimen/_40sdp"
     android:layout_marginTop="@dimen/_100sdp"
-tools:context=".ProfessorDetailsActivity">
-
+    tools:context=".EtudiantDetailsActivity">
 
     <ImageView
         android:id="@+id/imageService"
@@ -117,12 +117,11 @@ tools:context=".ProfessorDetailsActivity">
         android:id="@+id/delete"
         android:layout_width="@dimen/_60sdp"
         android:layout_height="0dp"
-        android:layout_marginStart="160dp"
+        android:layout_marginStart="152dp"
         android:layout_marginTop="4dp"
         android:text="SUPPRIMER"
+        android:textColor="@color/error"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/error"/>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

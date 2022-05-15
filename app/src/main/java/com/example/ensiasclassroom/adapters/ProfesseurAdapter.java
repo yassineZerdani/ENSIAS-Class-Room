@@ -33,7 +33,6 @@ public class ProfesseurAdapter extends RecyclerView.Adapter<ProfesseurAdapter.Us
                 parent,
                 false
         );
-
         return new UserViewHolder(usersContainerBinding);
     }
 
@@ -44,7 +43,6 @@ public class ProfesseurAdapter extends RecyclerView.Adapter<ProfesseurAdapter.Us
 
     @Override
     public int getItemCount() {
-
         return users.size();
     }
 

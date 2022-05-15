@@ -8,13 +8,18 @@
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/drawable/background_image_object.xml" value="0.1835" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_add_cr.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_add_emploit.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_add_etudiant.xml" value="0.2140625" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_add_etudiants_to_group.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_add_group.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_add_professor.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_chat.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_chats.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_cours_list.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_email.xml" value="0.18659420289855072" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_etudiant_chat.xml" value="0.175" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_etudiant_details.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_etudiants_list.xml" value="0.175" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_group_list.xml" value="0.18659420289855072" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_professeur_chat.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_professeurs_list.xml" value="0.22826086956521738" />
@@ -22,7 +27,8 @@
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_professor_main.xml" value="0.1765625" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_sign_in.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_sign_up.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_sign_up_etudiant.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_sign_up_etudiant.xml" value="0.264" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_test.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/activity_welcome.xml" value="0.184375" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/cr_container.xml" value="0.21927083333333333" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/ENSIASClassRoom/app/src/main/res/layout/etudiants_container.xml" value="0.22826086956521738" />

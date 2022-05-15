@@ -65,7 +65,7 @@ public class AddGroupActivity extends AppCompatActivity implements EtudiantListe
         service.put(Constants.KEY_GROUP_DESCR, binding1.description.getText().toString());
         service.put(Constants.KEY_GROUP_RTUDIANTS_LIST, etudiants);
         database.collection(Constants.KEY_COLLECTION_GROUP).add(service).addOnSuccessListener(documentReference -> {
-            Intent intent = new Intent(getApplicationContext(), ProfessorMainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), GroupListActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }).addOnFailureListener(exception -> {

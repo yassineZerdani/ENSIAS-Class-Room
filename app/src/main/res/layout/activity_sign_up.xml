@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16sdp"
-            android:text="Create New Account"
+            android:text="Créer un nouveau compte"
             android:textColor="@color/black"
             android:textSize="@dimen/_18ssp"
             android:textStyle="bold" />
@@ -44,8 +44,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Add Image"
-                android:textSize="@dimen/_10ssp" />
+                android:text="Ajouter une image"
+                android:textSize="@dimen/_8ssp" />
 
 
         </FrameLayout>
@@ -57,7 +57,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:background="@drawable/background_input"
-            android:hint="First Name"
+            android:hint="Prénom"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="text"
@@ -72,7 +72,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:background="@drawable/background_input"
-            android:hint="Last Name"
+            android:hint="Nom"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="text"
@@ -102,7 +102,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:background="@drawable/background_input"
-            android:hint="Phone"
+            android:hint="Téléphoner"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="phone"
@@ -117,7 +117,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/background_input"
-            android:hint="Email"
+            android:hint="E-mail"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
@@ -132,7 +132,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/background_input"
-            android:hint="Password"
+            android:hint="Mot de passe"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textPassword"
@@ -147,7 +147,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/background_input"
-            android:hint="Confirm Password"
+            android:hint="Confirmez le mot de passe"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="textPassword"
@@ -174,7 +174,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="Sign In"
+            android:text="Login?"
             android:textColor="@color/primary"
             android:textSize="@dimen/_13ssp"
             android:textStyle="bold" />

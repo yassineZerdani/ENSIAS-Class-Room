@@ -37,6 +37,15 @@ public class CoursListActivity extends AppCompatActivity implements CRListener {
 
     private void setListeners(){
         binding.imageBack.setOnClickListener(v -> onBackPressed());
+
+        String role = preferenceManager.getString(Constants.KEY_ROLE);
+        if(role == "admin"){
+            binding.addcour.setVisibility(View.GONE);
+        }
+        else{
+            binding.addcour.setVisibility(View.VISIBLE);
+        }
+        binding.addcour.setOnClickListener(v -> startActivity(new Intent(this, AddCrActivity.class)));
     }
 
     private void getUsers(){
@@ -87,7 +96,7 @@ public class CoursListActivity extends AppCompatActivity implements CRListener {
 
     @Override
     public void onCRClicked(CR user) {
-        Intent intent = new Intent(getApplicationContext(), ProfesseurChatActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         //intent.putExtra(Constants.KEY_PROFESSOR, user);
         startActivity(intent);
         finish();

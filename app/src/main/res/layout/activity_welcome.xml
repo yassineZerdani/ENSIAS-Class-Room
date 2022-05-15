@@ -8,42 +8,51 @@
     android:padding="@dimen/_24sdp"
     tools:context=".WelcomeActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/image_ensias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="400dp"
-        android:text="Ou"
-        android:textSize="@dimen/_20sdp"
-        app:layout_constraintStart_toEndOf="@+id/professeur"
+        android:layout_marginTop="132dp"
+        android:background="#FFEB3B"
+        android:src="@drawable/ensias"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/welcom_signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="548dp"
+        android:text="LogIn?"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/_20sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/etudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="@dimen/_30ssp"
+        android:layout_width="231dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="376dp"
         android:text="Etudiant"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/primary"
+        />
 
     <Button
         android:id="@+id/professeur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_width="231dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="456dp"
         android:text="Professeur"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/primary"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

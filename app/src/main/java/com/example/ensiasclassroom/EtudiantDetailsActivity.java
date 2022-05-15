@@ -11,44 +11,30 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.ensiasclassroom.databinding.ActivityProfessorDetailsBinding;
-import com.example.ensiasclassroom.listeners.ProfesseurListener;
-import com.example.ensiasclassroom.models.Professeur;
+import com.example.ensiasclassroom.databinding.ActivityEtudiantDetailsBinding;
+import com.example.ensiasclassroom.models.Etudiant;
 import com.example.ensiasclassroom.utilities.Constants;
 import com.example.ensiasclassroom.utilities.PreferenceManager;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-public class ProfessorDetailsActivity extends AppCompatActivity implements ProfesseurListener {
+public class EtudiantDetailsActivity extends AppCompatActivity {
 
-    private ActivityProfessorDetailsBinding binding;
-    private Professeur professeur;
+    private ActivityEtudiantDetailsBinding binding;
+    private Etudiant etudiant;
     private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityProfessorDetailsBinding.inflate(getLayoutInflater());
+        binding = ActivityEtudiantDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         preferenceManager = new PreferenceManager(getApplicationContext());
         getUsers();
         loadServiceDetails();
-        binding.sendMail.setOnClickListener( v -> sendEmail());
-        binding.sendSMS.setOnClickListener( v -> sendSMS());
-        binding.sendCall.setOnClickListener( v -> sendCall());
-        binding.delete.setOnClickListener(v -> {
-            FirebaseFirestore database = FirebaseFirestore.getInstance();
-            database.collection(Constants.KEY_COLLECTION_PROFESSORS).document(professeur.id).delete();
-            Intent intent = new Intent(getApplicationContext(), ProfesseursListActivity.class);
-            startActivity(intent);
-            finish();
-        });
 
         String role = preferenceManager.getString(Constants.KEY_ROLE);
 
@@ -58,6 +44,17 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
         else{
             binding.delete.setVisibility(View.VISIBLE);
         }
+
+        binding.sendMail.setOnClickListener( v -> sendEmail());
+        binding.sendSMS.setOnClickListener( v -> sendSMS());
+        binding.sendCall.setOnClickListener( v -> sendCall());
+        binding.delete.setOnClickListener(v -> {
+            FirebaseFirestore database = FirebaseFirestore.getInstance();
+            database.collection(Constants.KEY_COLLECTION_ETUDIANT).document(etudiant.id).delete();
+            Intent intent = new Intent(getApplicationContext(), ProfesseursListActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
     }
 
@@ -69,22 +66,22 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
     }
 
     private void loadServiceDetails(){
-        professeur = (Professeur) getIntent().getSerializableExtra(Constants.KEY_PROFESSOR);
-        binding.imageService.setImageBitmap(getBitmapFromEncodedString(professeur.photo));
-        binding.textName.setText("Pr "+professeur.prenom+" "+professeur.nom);
-        binding.textDescription.setText("Departement "+professeur.departement);
+        etudiant = (Etudiant) getIntent().getSerializableExtra(Constants.KEY_ETUDIANT);
+        binding.imageService.setImageBitmap(getBitmapFromEncodedString(etudiant.photo));
+        binding.textName.setText("Pr "+etudiant.prenom+" "+etudiant.nom);
         binding.negociate.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), ChatsActivity.class);
-            intent.putExtra(Constants.KEY_PROFESSOR, professeur);
+            Etudiant user = getUser(etudiant.id);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra(Constants.KEY_ETUDIANT, user);
             startActivity(intent);
             finish();
         });
     }
 
-    private Professeur getUser(String userId){
-        Professeur user = new Professeur();
+    private Etudiant getUser(String userId){
+        Etudiant user = new Etudiant();
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        database.collection(Constants.KEY_COLLECTION_PROFESSORS)
+        database.collection(Constants.KEY_COLLECTION_ETUDIANT)
                 .get()
                 .addOnCompleteListener(task -> {
 
@@ -93,9 +90,9 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
                             continue;
                         }
 
-                        user.nom = queryDocumentSnapshot.getString(Constants.KEY_PROFESSOR_FIRST_NAME);
+                        user.nom = queryDocumentSnapshot.getString(Constants.KEY_ETUDIANT_FIRST_NAME);
                         //user.mail = queryDocumentSnapshot.getString(Constants.KEY_PROFESSOR_EMAIL);
-                        user.photo = queryDocumentSnapshot.getString(Constants.KEY_PROFESSOR_IMAGE);
+                        user.photo = queryDocumentSnapshot.getString(Constants.KEY_ETUDIANT_IMAGE);
                         user.token = queryDocumentSnapshot.getString(Constants.KEY_FCM_TOKEN);
                         user.id = queryDocumentSnapshot.getId();
 
@@ -108,13 +105,13 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
     private void getUsers(){
 
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        database.collection(Constants.KEY_COLLECTION_PROFESSORS)
+        database.collection(Constants.KEY_COLLECTION_ETUDIANT)
                 .get()
                 .addOnCompleteListener(task -> {
 
                     String currentUserId = preferenceManager.getString(Constants.KEY_ETUDIANT_ID);
                     if(task.isSuccessful() && task.getResult() != null){
-                        List<Professeur> users = new ArrayList<>();
+                        List<Etudiant> users = new ArrayList<>();
                         for(QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
                             if(currentUserId.equals(queryDocumentSnapshot.getId())){
                                 continue;
@@ -122,18 +119,16 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
                             if(binding.textAuthor.equals(queryDocumentSnapshot.getId())){
                                 continue;
                             }
-                            Professeur user = new Professeur();
-                            user.nom = queryDocumentSnapshot.getString(Constants.KEY_PROFESSOR_FIRST_NAME);
-                            user.prenom = queryDocumentSnapshot.getString(Constants.KEY_PROFESSOR_LAST_NAME);
-                            user.photo = queryDocumentSnapshot.getString(Constants.KEY_PROFESSOR_IMAGE);
-                            user.tel = queryDocumentSnapshot.getString(Constants.KEY_PROFESSOR_PHONE);
-                            user.departement = queryDocumentSnapshot.getString(Constants.KEY_PROFESSOR_DEPARTEMENT);
+                            Etudiant user = new Etudiant();
+                            user.nom = queryDocumentSnapshot.getString(Constants.KEY_ETUDIANT_FIRST_NAME);
+                            user.prenom = queryDocumentSnapshot.getString(Constants.KEY_ETUDIANT_LAST_NAME);
+                            user.photo = queryDocumentSnapshot.getString(Constants.KEY_ETUDIANT_IMAGE);
                             user.token = queryDocumentSnapshot.getString(Constants.KEY_FCM_TOKEN);
                             user.id = queryDocumentSnapshot.getId();
                             users.add(user);
                         }
                         if(users.size() > 0){
-                            binding.negociate.setOnClickListener(v -> onUserClicked(users.get(0)));
+
                         }
                     }
                 });
@@ -143,8 +138,8 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
         Intent smsIntent = new Intent(Intent.ACTION_VIEW);
         smsIntent.setData(Uri.parse("smsto:"));
         smsIntent.setType("vnd.android-dir/mms-sms");
-        smsIntent.putExtra("address"  , new String("0984768:738478"));
-        smsIntent.putExtra("sms_body"  , "uilhiuh");
+        smsIntent.putExtra("address"  , new String("0123456789;3393993300"));
+        smsIntent.putExtra("sms_body"  , "Test SMS to Angilla");
     }
 
     public void sendCall(){
@@ -152,8 +147,6 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:"+"8802177690"));//change the number
     }
-
-
 
     public void sendEmail(){
         Intent i = new Intent(Intent.ACTION_SEND);
@@ -169,12 +162,4 @@ public class ProfessorDetailsActivity extends AppCompatActivity implements Profe
     }
 
 
-
-    @Override
-    public void onUserClicked(Professeur professeur) {
-        Intent intent = new Intent(getApplicationContext(), ChatsActivity.class);
-        intent.putExtra(Constants.KEY_PROFESSOR, professeur);
-        startActivity(intent);
-        finish();
-    }
 }

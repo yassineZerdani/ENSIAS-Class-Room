@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Toast;
 
-import com.example.ensiasclassroom.EtudiantMainActivity;
-import com.example.ensiasclassroom.ProfessorMainActivity;
+import com.example.ensiasclassroom.MainActivity;
 import com.example.ensiasclassroom.WelcomeActivity;
 import com.example.ensiasclassroom.databinding.ActivitySignInBinding;
 import com.example.ensiasclassroom.utilities.Constants;
@@ -26,7 +25,7 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         preferenceManager = new PreferenceManager(getApplicationContext());
         if(preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)){
-            Intent intent = new Intent(getApplicationContext(), EtudiantMainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -42,7 +41,7 @@ public class SignInActivity extends AppCompatActivity {
         });
         binding.signin.setOnClickListener(v -> {
             if(isValidSignInDetails()){
-                signInEtudiant();
+                signInProfessor();
             }
         });
     }
@@ -122,7 +121,7 @@ public class SignInActivity extends AppCompatActivity {
                         preferenceManager.putString(Constants.KEY_ETUDIANT_FIRST_NAME, documentSnapshot.getString(Constants.KEY_ETUDIANT_FIRST_NAME));
                         preferenceManager.putString(Constants.KEY_ETUDIANT_LAST_NAME, documentSnapshot.getString(Constants.KEY_ETUDIANT_LAST_NAME));
                         preferenceManager.putString(Constants.KEY_ETUDIANT_IMAGE, documentSnapshot.getString(Constants.KEY_ETUDIANT_IMAGE));
-                        Intent intent = new Intent(getApplicationContext(), EtudiantMainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     }else{
@@ -147,7 +146,7 @@ public class SignInActivity extends AppCompatActivity {
                         preferenceManager.putString(Constants.KEY_PROFESSOR_FIRST_NAME, documentSnapshot.getString(Constants.KEY_PROFESSOR_FIRST_NAME));
                         preferenceManager.putString(Constants.KEY_PROFESSOR_LAST_NAME, documentSnapshot.getString(Constants.KEY_PROFESSOR_LAST_NAME));
                         preferenceManager.putString(Constants.KEY_PROFESSOR_IMAGE, documentSnapshot.getString(Constants.KEY_PROFESSOR_IMAGE));
-                        Intent intent = new Intent(getApplicationContext(), ProfessorMainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     }else{

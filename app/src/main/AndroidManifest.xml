@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ENSIASClassRoom">
         <activity
+            android:name=".EmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GroupListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddEtudiantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EtudiantDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".CoursListActivity"
             android:exported="false" />
         <activity
@@ -25,19 +43,10 @@
             android:name=".AddProfessorActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfessorMainActivity"
-            android:exported="false" />
-        <activity
             android:name=".ProfessorDetailsActivity"
             android:exported="false"
             android:label="@string/title_activity_professor_details"
             android:theme="@style/Theme.AppCompat.Light.Dialog" />
-        <activity
-            android:name=".ProfesseurChatActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EtudiantChatActivity"
-            android:exported="false" />
         <activity
             android:name=".auth.SignInActivity"
             android:exported="true">
@@ -61,9 +70,6 @@
             android:exported="false" />
         <activity
             android:name=".ProfesseursListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EtudiantMainActivity"
             android:exported="false" />
 
         <service
